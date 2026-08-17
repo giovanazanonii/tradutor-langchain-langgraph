@@ -12,7 +12,7 @@ const model = new ChatOllama({
 async function main() {
   const mensagem = await prompt.format({
     idioma: "Francês",
-    texto: "Olá, meu grande amor Caio!",
+    texto: "Olá, pessoal do time!",
   });
 
   const response = await model.invoke(mensagem);
