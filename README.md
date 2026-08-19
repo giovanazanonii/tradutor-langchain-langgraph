@@ -2,9 +2,18 @@
 
 ## Descrição
 
-Este projeto consiste em uma API REST para tradução de textos utilizando LangChain, LangGraph e Ollama. O fluxo de tradução é realizado por um grafo composto por dois nós: o primeiro realiza a tradução do texto para o idioma desejado e o segundo revisa a tradução, corrigindo possíveis erros gramaticais e melhorando a naturalidade do texto.
+Este projeto é uma aplicação Full Stack desenvolvida para demonstrar a utilização de Inteligência Artificial com LangChain e LangGraph na construção de um fluxo de tradução automática. A aplicação permite que o usuário escreva um texto, selecione o idioma de destino e receba a tradução através de uma interface web moderna. Todo o processamento é realizado localmente utilizando Ollama e o modelo Llama 3.2 3B.
 
 ## Tecnologias utilizadas
+
+### Frontend
+
+- React
+- TypeScript
+- CSS3
+- Fetch API
+
+### Backend
 
 - Node.js
 - TypeScript
@@ -16,48 +25,100 @@ Este projeto consiste em uma API REST para tradução de textos utilizando LangC
 
 ## Instalação
 
-Clone o repositório:
+Clone o repositório
 
 ```bash
 git clone https://github.com/giovanazanonii/tradutor-langchain-langgraph.git
 ```
 
-Entre na pasta do projeto:
+Entre na pasta do projeto
 
 ```bash
 cd tradutor-langchain-langgraph
 ```
 
-Instale as dependências:
+### Backend
+
+Entre na pasta
+
+```bash
+cd backend
+```
+
+Instale as dependências
 
 ```bash
 npm install
 ```
 
-## Executando o projeto
-
-Inicie o Ollama:
+Inicie o Ollama
 
 ```bash
 ollama serve
 ```
 
-Caso o modelo ainda não esteja instalado:
+Caso o modelo ainda não esteja instalado
 
 ```bash
 ollama pull llama3.2:3b
 ```
 
-Inicie a aplicação:
+Execute o servidor
 
 ```bash
 npm run dev
 ```
 
-O servidor ficará disponível em:
+O backend ficará disponível em
 
 ```
 http://localhost:3000
+```
+
+### Frontend
+
+Abra outro terminal
+
+```bash
+cd frontend
+```
+
+Instale as dependências
+
+```bash
+npm install
+```
+
+Execute a aplicação
+
+```bash
+npm run dev
+```
+
+O frontend ficará disponível em
+
+```
+http://localhost:5173
+```
+
+## Fluxo da tradução
+
+O LangGraph executa dois nós sequencialmente:
+
+1. Tradução do texto.
+2. Revisão da tradução.
+
+```
+START
+   │
+   ▼
+Traduzir
+   │
+   ▼
+Revisar
+   │
+   ▼
+ END
 ```
 
 ## Tratamento de erros
@@ -74,18 +135,48 @@ Exemplos:
 ## Estrutura do projeto
 
 ```text
-src/
+tradutor-langchain-langgraph/
 │
-├── graph/
-│   └── grafo-tradutor.ts   → Define o LangGraph
+├── assets/
+│   └── Tradutor.png
 │
-├── routes/
-│   └── translate.ts        → Endpoint da API
+├── backend/
+│   └── src/
+│       ├── graph/
+│       │   └── grafo-tradutor.ts
+│       │
+│       ├── routes/
+│       │   └── translate.ts
+│       │
+│       ├── app.ts
+│       └── server.ts
 │
-├── app.ts                  → Configuração do Express
+├── frontend/
+│   └── src/
+│       ├── services/
+│       │   └── api.ts
+│       │
+│       ├── styles/
+│       │   └── global.css
+│       │
+│       ├── App.tsx
+│       └── main.tsx
 │
-└── server.ts               → Inicialização do servidor
+└── README.md
 ```
+
 ## Autores
 
-Este projeto foi realizado pelos desenvolvedores /betinalimaj, /giovanazanonii e /leozhxl 
+Desenvolvido por:
+
+- [**Betina Lima**](https://github.com/betinalimaj)
+- [**Giovana Zanoni**](https://github.com/giovanazanonii)
+- [**Leo Henrique Candido**](https://github.com/leozhxl)
+
+---
+
+<h2 align="center">Page Tradutor</h2>
+
+<p align="center">
+  <img src="./assets/Tradutor.png" alt="Tradutor" width="900"/>
+</p>

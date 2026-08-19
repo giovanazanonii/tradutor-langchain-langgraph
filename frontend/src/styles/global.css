@@ -1,0 +1,408 @@
+/* ===========================
+   RESET
+=========================== */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ===========================
+   FUNDO
+=========================== */
+
+body {
+  background: #07130a;
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+
+.page {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* manchas verdes */
+
+.background {
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(circle at 20% 20%, rgba(33, 99, 43, 0.25), transparent 35%),
+    radial-gradient(
+      circle at 80% 25%,
+      rgba(34, 125, 57, 0.18),
+      transparent 40%
+    ),
+    radial-gradient(circle at 85% 80%, rgba(23, 89, 41, 0.22), transparent 35%),
+    radial-gradient(circle at 15% 85%, rgba(24, 73, 33, 0.15), transparent 30%),
+    #07130a;
+
+  filter: blur(5px);
+}
+
+/* ===========================
+   CONTAINER
+=========================== */
+
+.container {
+  width: 100%;
+  max-width: 980px;
+
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+
+.header {
+  text-align: center;
+
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 72px;
+  font-weight: 300;
+  color: white;
+  letter-spacing: 0.5px;
+}
+
+.header p {
+  margin-top: 14px;
+
+  color: rgba(255, 255, 255, 0.45);
+
+  font-size: 18px;
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.translator-card {
+  width: 840px;
+  height: 420px;
+
+  background: white;
+
+  border-radius: 22px;
+
+  overflow: hidden;
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+/* ===========================
+   TOPO
+=========================== */
+
+.translator-top {
+  height: 96px;
+
+  display: grid;
+  grid-template-columns: 1fr 80px 1fr;
+
+  align-items: center;
+
+  padding: 0 35px;
+
+  border-bottom: 1px solid #ececec;
+}
+
+/* ===========================
+   IDIOMAS
+=========================== */
+
+.language {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.language-right {
+  align-items: flex-end;
+}
+
+.language span {
+  font-size: 12px;
+
+  letter-spacing: 2px;
+
+  color: #8f8fa0;
+
+  margin-bottom: 10px;
+}
+
+.language-button {
+  background: transparent;
+
+  border: none;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 18px;
+
+  cursor: pointer;
+
+  color: #1f2a44;
+
+  font-weight: 500;
+  transition: 0.25s;
+}
+
+.language {
+  transition: 0.2s;
+}
+
+.language:hover span {
+  color: #00d13f;
+}
+
+.language:hover .language-button {
+  color: #00d13f;
+}
+
+.arrow {
+  font-size: 14px;
+}
+
+/* ===========================
+   BOTÃO CENTRAL
+=========================== */
+
+.swap-button {
+  width: 48px;
+  height: 48px;
+
+  border-radius: 50%;
+
+  border: 1px solid #ececec;
+
+  background: #f7f7f7;
+
+  color: #9a9a9a;
+
+  font-size: 24px;
+
+  margin: auto;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.swap-button:hover {
+  background: #ececec;
+}
+
+/* ===========================
+   ÁREA DOS TEXTOS
+=========================== */
+
+.translator-body {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  height: calc(100% - 96px);
+}
+
+.text-column {
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+}
+
+.text-column:first-child {
+  border-right: 1px solid #ececec;
+}
+
+/* ===========================
+   TEXTAREA
+=========================== */
+
+textarea {
+  flex: 1;
+
+  border: none;
+
+  outline: none;
+
+  resize: none;
+
+  padding: 26px;
+
+  font-size: 19px;
+
+  line-height: 1.6;
+
+  color: #1f2a44;
+
+  background: transparent;
+}
+
+textarea::placeholder {
+  color: #cfcfcf;
+
+  font-size: 18px;
+
+  font-weight: 400;
+}
+
+/* ===========================
+   CONTADOR
+=========================== */
+
+.counter {
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+
+  padding-left: 20px;
+
+  font-size: 14px;
+
+  color: #bdbdbd;
+
+  border-top: 1px solid #ececec;
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+
+.footer {
+  margin-top: 28px;
+
+  color: rgba(255, 255, 255, 0.35);
+
+  font-size: 16px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  flex-wrap: wrap;
+}
+
+.footer a {
+  color: rgba(255, 255, 255, 0.55);
+
+  text-decoration: none;
+
+  transition: 0.25s ease;
+}
+
+.footer a:hover {
+  color: #00d13f;
+}
+
+/* ===========================
+   MENU DE IDIOMAS
+=========================== */
+
+.language-menu {
+  position: absolute;
+
+  top: 65px;
+  left: 0;
+
+  width: 250px;
+
+  max-height: 250px;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  background: white;
+
+  border-radius: 14px;
+
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+
+  border: 1px solid #ececec;
+
+  display: flex;
+  flex-direction: column;
+
+  z-index: 100;
+}
+
+.language-menu::-webkit-scrollbar {
+  width: 4px;
+}
+
+.language-menu::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.language-menu::-webkit-scrollbar-thumb {
+  background: #cfcfcf;
+  border-radius: 20px;
+}
+
+.language-menu::-webkit-scrollbar-thumb:hover {
+  background: #00d13f;
+}
+
+.language-option {
+  border: none;
+
+  background: white;
+
+  padding: 10px 16px;
+  padding-top: 20px;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  font-size: 16px;
+
+  color: #444;
+
+  transition: 0.2s;
+}
+
+.language-option:hover {
+  background: #eefcf2;
+
+  color: #00d13f;
+}
+
+.language-right .language-menu {
+  left: auto;
+
+  right: 0;
+}
