@@ -149,9 +149,9 @@ tradutor-langchain-langgraph/
 
 Desenvolvido por:
 
-- [*/betinalimaj*](https://github.com/betinalimaj)
-- [*/giovanazanonii*](https://github.com/giovanazanonii)
-- [*/leozhxl*](https://github.com/leozhxl)
+- [*Betina Lima*](https://github.com/betinalimaj)
+- [*Giovana Zanoni*](https://github.com/giovanazanonii)
+- [*Leo Henrique Candido*](https://github.com/leozhxl)
 
 ---
 
