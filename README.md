@@ -101,26 +101,6 @@ O frontend ficará disponível em
 http://localhost:5173
 ```
 
-## Fluxo da tradução
-
-O LangGraph executa dois nós sequencialmente:
-
-1. Tradução do texto.
-2. Revisão da tradução.
-
-```
-START
-   │
-   ▼
-Traduzir
-   │
-   ▼
-Revisar
-   │
-   ▼
- END
-```
-
 ## Tratamento de erros
 
 A API realiza validação dos dados recebidos.
@@ -169,9 +149,9 @@ tradutor-langchain-langgraph/
 
 Desenvolvido por:
 
-- [**Betina Lima**](https://github.com/betinalimaj)
-- [**Giovana Zanoni**](https://github.com/giovanazanonii)
-- [**Leo Henrique Candido**](https://github.com/leozhxl)
+- [**/betinalimaj**](https://github.com/betinalimaj)
+- [**/giovanazanonii**](https://github.com/giovanazanonii)
+- [**/leozhxl**](https://github.com/leozhxl)
 
 ---
 
