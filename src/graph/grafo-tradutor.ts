@@ -80,18 +80,4 @@ const grafo = new StateGraph(TradutorState)
 // compile() transforma a definição do grafo em algo executável (Runnable)
 const app = grafo.compile();
 
-// ------------------------------------------------------------------
-// EXECUÇÃO DO GRAFO
-// invoke() roda o grafo do START até o END e retorna o estado final.
-// ------------------------------------------------------------------
-async function main() {
-  const estadoFinal = await app.invoke({
-    texto: "Olá, pessoal do time! Vamos revisar o projeto amanhã.",
-    idioma: "Francês",
-  });
-
-  console.log("Tradução bruta:", estadoFinal.traducao);
-  console.log("Tradução revisada:", estadoFinal.revisao);
-}
-
-main();
+export default app;
