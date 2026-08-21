@@ -6,8 +6,10 @@
     "esModuleInterop": true,
     "strict": true,
     "skipLibCheck": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "outDir": "./dist",
-    "rootDir": "backend/src"
+    "rootDir": "src"
   },
-  "include": ["backend/src"]
+  "include": ["src"]
 }

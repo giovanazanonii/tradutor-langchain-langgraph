@@ -1,77 +1,22 @@
-import { useEffect, useState } from "react";
-import { traduzir } from "./services/api";
-
-const idiomas = [
-  "Português",
-  "Inglês",
-  "Espanhol",
-  "Francês",
-  "Alemão",
-  "Italiano",
-  "Japonês",
-  "Chinês",
-  "Coreano",
-];
-
-const mapaIdiomas: Record<string, string> = {
-  Português: "Português",
-  Inglês: "English",
-  Espanhol: "Español",
-  Francês: "Français",
-  Alemão: "Deutsch",
-  Italiano: "Italiano",
-  Japonês: "日本語",
-  Chinês: "中文",
-  Coreano: "한국어",
-};
+import { useTradutor } from "./hooks/useTradutor";
 
 function App() {
-  const [idiomaOrigem, setIdiomaOrigem] = useState("Português");
-  const [idiomaDestino, setIdiomaDestino] = useState("Inglês");
-  const [texto, setTexto] = useState("");
-  const [traducao, setTraducao] = useState("");
-  const [menuOrigemAberto, setMenuOrigemAberto] = useState(false);
-  const [menuDestinoAberto, setMenuDestinoAberto] = useState(false);
-  const [carregando, setCarregando] = useState(false);
-
-  function inverterIdiomas() {
-    const origem = idiomaOrigem;
-
-    setIdiomaOrigem(idiomaDestino);
-    setIdiomaDestino(origem);
-
-    setTexto(traducao);
-    setTraducao(texto);
-  }
-
-  async function traduzirTexto() {
-    if (!texto.trim()) {
-      setTraducao("");
-      return;
-    }
-
-    try {
-      setCarregando(true);
-
-      const resultado = await traduzir(texto, mapaIdiomas[idiomaDestino]);
-
-      setTraducao(resultado);
-    } catch (error) {
-      console.error(error);
-
-      setTraducao("Erro ao traduzir.");
-    } finally {
-      setCarregando(false);
-    }
-  }
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      traduzirTexto();
-    }, 500);
-
-    return () => clearTimeout(timer);
-  }, [texto, idiomaDestino]);
+  const {
+    idiomas,
+    idiomaOrigem,
+    setIdiomaOrigem,
+    idiomaDestino,
+    setIdiomaDestino,
+    texto,
+    setTexto,
+    traducao,
+    menuOrigemAberto,
+    setMenuOrigemAberto,
+    menuDestinoAberto,
+    setMenuDestinoAberto,
+    carregando,
+    inverterIdiomas,
+  } = useTradutor();
 
   return (
     <main className="page">
