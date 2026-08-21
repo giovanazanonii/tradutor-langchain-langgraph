@@ -16,10 +16,6 @@ const model = new ChatOllama({
   temperature: 0,
 });
 
-// ======================
-// Nó de tradução
-// ======================
-
 const promptTraducao = ChatPromptTemplate.fromMessages([
   [
     "system",
@@ -54,9 +50,8 @@ Texto:
 ]);
 
 async function traduzir(
-  state: EstadoTradutor
+  state: EstadoTradutor,
 ): Promise<Partial<EstadoTradutor>> {
-
   const mensagens = await promptTraducao.formatMessages({
     idioma: state.idioma,
     texto: state.texto,
@@ -68,10 +63,6 @@ async function traduzir(
     traducao: String(resposta.content).trim(),
   };
 }
-
-// ======================
-// Nó de revisão
-// ======================
 
 const promptRevisao = ChatPromptTemplate.fromMessages([
   [
@@ -89,16 +80,12 @@ Nunca explique.
 
 Retorne somente a versão final.`,
   ],
-  [
-    "human",
-    "Idioma: {idioma}\n\nTradução:\n{traducao}",
-  ],
+  ["human", "Idioma: {idioma}\n\nTradução:\n{traducao}"],
 ]);
 
 async function revisar(
-  state: EstadoTradutor
+  state: EstadoTradutor,
 ): Promise<Partial<EstadoTradutor>> {
-
   const mensagens = await promptRevisao.formatMessages({
     idioma: state.idioma,
     traducao: state.traducao,
@@ -110,10 +97,6 @@ async function revisar(
     revisao: String(resposta.content).trim(),
   };
 }
-
-// ======================
-// Grafo
-// ======================
 
 const grafo = new StateGraph(TradutorState)
   .addNode("traduzir", traduzir)
